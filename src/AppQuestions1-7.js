@@ -14,7 +14,11 @@ class App extends Component {
     ]
   };
 
-
+changeNameHandler = (newName) =>{
+ this.setState({
+   changableName:newName //Over riding the name Sofie
+ })
+}
 
 passInput = (x) => {
   let deepCopy = [...this.state.persons];
@@ -27,13 +31,20 @@ passInput = (x) => {
   render(){
   return (
     <div className="App">
-
-      <UserInput words = {this.passInput} name={this.state.persons[0].name} /> {/* Placeholdername gets passed*/}
-
-      {this.state.persons.map( person => (
-       <UserOutput name={person.name} key={person.id} />
-      ))}
-
+    <code>Q: 1,2,3,8</code>
+      <UserInput words = {this.passInput}/>
+      <UserOutput />
+      <UserOutput />
+      <UserOutput />
+      <hr />
+      <code> Q:4 </code>
+      <UserOutput name="Bob" age="32"/>
+      <hr/>
+      <code>Q:5 </code>
+     <UserOutput name={this.state.persons[1].name} />
+     <hr/>
+     <code> Q:6 </code>
+     <UserOutput name ={this.state.persons[0].name}/>
     </div>
   );
 }
